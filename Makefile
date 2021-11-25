@@ -1,7 +1,12 @@
 NAME = push_swap
 
-$(NAME):
-	clang -g main.c -o $@
+LIBRARY = libft/libft.a
+
+$(NAME): $(LIBRARY)
+	gcc -g -I include/ -I libft/ main.c $(LIBRARY) -o $@
+
+$(LIBRARY):
+	$(MAKE) -C libft
 
 clean:
 	rm -rf $(NAME)
