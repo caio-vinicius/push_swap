@@ -10,6 +10,19 @@ struct s_stack
 	struct s_stack	*previous;
 };
 
+struct s_head
+{
+	struct s_stack	*stack_a;
+	struct s_stack	*stack_b;
+};
+
+struct s_stack	*ps_lstnew(int element);
+struct s_stack	*ps_lstlast(struct s_stack *lst);
+void		ps_lstadd_front(struct s_stack **lst, struct s_stack *new);
+void		ps_lstadd_back(struct s_stack **lst, struct s_stack *new);
+
+int	*get_numbers(char *arr[], int arrlen);
+
 /*
 **
 ** Operations

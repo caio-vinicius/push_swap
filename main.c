@@ -1,55 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/28 13:11:39 by csouza-f          #+#    #+#             */
+/*   Updated: 2021/11/28 20:26:41 by csouza-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-#include <stdio.h>
-#include <stdlib.h>
+struct s_stack	*new_stack(int *elements)
+{
+	struct s_stack	*stack;
+	struct s_stack	*new;
+	int				i;
 
-int c[5] = {8, 1, 3, 2, 5};
-//int d[5] = {};
-
-void swap(int arr[], int first_value, int second_value) {
-	int temp = arr[first_value];
-	arr[first_value] = arr[second_value];
-	arr[second_value] = temp;
-}
-
-int *new_stack(char *arr[], int arrlen) {
-	int *stack;
-	int i;
-	
-	stack = malloc(arrlen * sizeof(int));
 	i = 0;
-	while (arr[i]) {
-		stack[i] = ft_atoi(arr[i]);
+	if (!elements)
+		return (ps_lstnew(0));
+	stack = ps_lstnew(elements[i]);
+	i++;
+	while (elements[i])
+	{
+		new = ps_lstnew(elements[i]);
+		if (!new)
+			return (NULL);
+		ps_lstadd_back(&stack, new);
 		i++;
 	}
-	stack[i] = '\0';
 	return (stack);
 }
 
-int main(int argc, char *argv[]) {
-	int *stack;
-	size_t stack_len;
-	int i;
-	int j;
-	
-	stack = new_stack(++argv, --argc);
-	stack_len = argc;
-	printf("stack_len: %ld\n", stack_len);
-	i = 0;
-	j = 0;
-	while (stack_len) {
-		while (stack[i+1]) {
-			if (stack[i] > stack[i+1]) {
-				swap(stack, i, i+1);
-			}
-			i++;
-		}
-		i = 0;
-		stack_len--;
+int	push_swap(int nbrslen, char *nbrs[])
+{
+	struct s_stack	*stack_a;
+	struct s_stack	*stack_b;
+	size_t			numbers_len;
+	int				*numbers;
+
+	numbers = get_numbers(++nbrs, --nbrslen);
+	if (!numbers)
+	{
+		ft_putstr("Error\n");
+		return (EXIT_FAILURE);
 	}
-	while (stack[j]) {
-		printf("stack: %d\n", stack[j]);
-		j++;
-	}
-	return (0);
+	numbers_len = nbrslen;
+	stack_a = new_stack(numbers);
+	stack_b = new_stack(numbers);
+	free(numbers);
+	sa(stack_a);
+	sb(stack_b);
+	ss(stack_a, stack_b);
+	pa(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	ra(&stack_a);
+	rb(&stack_b);
+	rr(&stack_a, &stack_b);
+	rra(&stack_a);
+	rrb(&stack_b);
+	rrr(&stack_a, &stack_b);
+	return (EXIT_SUCCESS);
+}
+
+int	main(int argc, char *argv[])
+{
+	if (push_swap(argc, argv))
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
