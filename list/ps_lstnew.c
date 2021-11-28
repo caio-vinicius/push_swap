@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ps_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/28 13:11:55 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/11/28 14:48:59 by csouza-f         ###   ########.fr       */
+/*   Created: 2021/11/28 14:38:16 by csouza-f          #+#    #+#             */
+/*   Updated: 2021/11/28 14:43:30 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_element_to_top(struct s_stack **taker, struct s_stack **giver)
-{	
-	struct s_stack	*tmp;
-
-	tmp = (*giver)->next;
-	ps_lstadd_front(taker, *giver);
-	*giver = tmp;
-	(*giver)->previous = NULL;
-}
-
-void	pa(struct s_stack **stack_a, struct s_stack **stack_b)
+struct s_stack	*ps_lstnew(int element)
 {
-	push_element_to_top(stack_a, stack_b);
-}
+	struct s_stack	*new;
 
-void	pb(struct s_stack **stack_a, struct s_stack **stack_b)
-{
-	push_element_to_top(stack_b, stack_a);
+	new = malloc(sizeof(struct s_stack *));
+	if (!new)
+		return (0);
+	new->element = element;
+	new->next = NULL;
+	new->previous = NULL;
+	return (new);
 }
