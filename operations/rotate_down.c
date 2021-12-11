@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:13:29 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/11/28 14:49:14 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/11/28 20:56:52 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,18 @@ void	shift_all_elements_down(struct s_stack **stack)
 void	rra(struct s_stack **stack)
 {
 	shift_all_elements_down(stack);
+	ft_putstr("rra\n");
 }
 
 void	rrb(struct s_stack **stack)
 {
 	shift_all_elements_down(stack);
+	ft_putstr("rrb\n");
 }
 
 void	rrr(struct s_stack **stack_a, struct s_stack **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	shift_all_elements_down(stack_a);
+	shift_all_elements_down(stack_b);
+	ft_putstr("rra\n");
 }
