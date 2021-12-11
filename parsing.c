@@ -6,13 +6,13 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:21:28 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/11/28 20:22:14 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/11 11:26:01 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	are_numbers(char *arr[])
+static int	are_numbers(char **arr)
 {
 	int	i;
 	int	j;
@@ -33,7 +33,7 @@ static int	are_numbers(char *arr[])
 	return (1);
 }
 
-static int	are_integers(char *arr[])
+static int	are_integers(char **arr)
 {
 	char	*s;
 	int		i;
@@ -53,7 +53,7 @@ static int	are_integers(char *arr[])
 	return (1);
 }
 
-static int	theres_duplicates(char *arr[])
+static int	theres_duplicates(char **arr)
 {
 	int	i;
 	int	j;
@@ -74,9 +74,9 @@ static int	theres_duplicates(char *arr[])
 	return (0);
 }
 
-int	*get_numbers(char *arr[], int arrlen)
+struct s_numbers	*get_numbers(char **arr, int arrlen)
 {
-	int	*stack;
+	struct s_numbers	*numbers;
 	int	i;
 
 	if (!are_numbers(arr))
@@ -86,12 +86,13 @@ int	*get_numbers(char *arr[], int arrlen)
 	if (theres_duplicates(arr))
 		return (0);
 	i = 0;
-	stack = malloc(arrlen * sizeof(int));
+	numbers = malloc(sizeof(*numbers));
+	numbers->numbers = malloc(arrlen * sizeof(int));
+	numbers->count = arrlen;
 	while (arr[i])
 	{
-		stack[i] = ft_atoi(arr[i]);
+		numbers->numbers[i] = ft_atoi(arr[i]);
 		i++;
 	}
-	stack[i] = '\0';
-	return (stack);
+	return (numbers);
 }

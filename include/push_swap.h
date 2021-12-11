@@ -10,10 +10,10 @@ struct s_stack
 	struct s_stack	*previous;
 };
 
-struct s_head
+struct s_numbers
 {
-	struct s_stack	*stack_a;
-	struct s_stack	*stack_b;
+	int	*numbers;
+	size_t	count;
 };
 
 struct s_stack	*ps_lstnew(int element);
