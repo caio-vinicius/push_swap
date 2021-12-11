@@ -14,11 +14,16 @@
 
 static void	swap_first_two_elements(struct s_stack **stack)
 {
-	int	tmp;
+	struct s_stack *tmp;
 
-	tmp = stack->element;
-	stack->element = stack->next->element;
-	stack->next->element = tmp;
+	tmp = (*stack)->next;
+	if ((*stack)->next->next)
+		(*stack)->next->next->previous = *stack;
+	(*stack)->previous = (*stack)->next;
+	(*stack)->next = (*stack)->next->next;
+	tmp->previous = NULL;
+	tmp->next = NULL;
+	ps_lstadd_front(stack, tmp);
 }
 
 void	sa(struct s_stack **stack)
