@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:16:19 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/11/30 21:54:41 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/12 11:11:06 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static void	swap_first_two_elements(struct s_stack **stack)
 		(*stack)->next->next->previous = *stack;
 	(*stack)->previous = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
+	(*stack)->index = 1;
 	tmp->previous = NULL;
 	tmp->next = NULL;
+	tmp->index = 0;
 	ps_lstadd_front(stack, tmp);
 }
 

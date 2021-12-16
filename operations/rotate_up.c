@@ -6,13 +6,13 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:12:12 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/11/28 20:57:18 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/15 23:20:59 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	shift_all_elements_up(struct s_stack **stack)
+static void	shift_all_elements_up(struct s_stack **stack)
 {
 	struct s_stack	*tmp;
 
