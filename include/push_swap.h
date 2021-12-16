@@ -7,6 +7,7 @@
 struct s_stack
 {
 	int		element;
+	size_t		index;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 };

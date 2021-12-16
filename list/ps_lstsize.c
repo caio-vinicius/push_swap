@@ -6,15 +6,15 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 21:08:40 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/11/28 21:10:21 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/12 21:58:43 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ps_lstsize(struct s_stack *lst)
+size_t	ps_lstsize(struct s_stack *lst)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (lst != NULL)
