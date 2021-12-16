@@ -89,4 +89,12 @@ void	rrb(struct s_stack **stack);
 void	rrb_x(struct s_stack **stack, size_t amount);
 void	rrr(struct s_stack **stack_a, struct s_stack **stack_b);
 
+/*
+**
+** Utils
+**
+*/
+
+int	stack_is_sorted_ascending(struct s_stack *stack);
+
 #endif
