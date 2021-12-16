@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:21:28 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/11 11:26:01 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:14:09 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,7 @@ struct s_numbers	*get_numbers(char **arr, int arrlen)
 	if (theres_duplicates(arr))
 		return (0);
 	i = 0;
-	numbers = malloc(sizeof(*numbers));
-	numbers->numbers = malloc(arrlen * sizeof(int));
-	numbers->count = arrlen;
+	numbers = ps_nbrsnew(arrlen);
 	while (arr[i])
 	{
 		numbers->numbers[i] = ft_atoi(arr[i]);

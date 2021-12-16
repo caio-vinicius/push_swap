@@ -24,14 +24,24 @@ struct s_numbers
 **
 */
 
-struct s_stack	*ps_lstnew(int element);
+struct s_stack	*ps_lstnew(int element, size_t index);
 struct s_stack	*ps_lstlast(struct s_stack *lst);
 void		ps_lstadd_front(struct s_stack **lst, struct s_stack *new);
 void		ps_lstadd_back(struct s_stack **lst, struct s_stack *new);
-int		ps_lstsize(struct s_stack *lst);
+size_t		ps_lstsize(struct s_stack *lst);
 struct s_stack	*ps_lsthighest(struct s_stack *stack);
 void		ps_lstfree(struct s_stack *stack);
 struct s_stack	*ps_llstnew(struct s_numbers *numbers);
+
+/*
+**
+** Numbers
+**
+*/
+
+void			ps_nbrsfree(struct s_numbers *nbrs);
+struct s_numbers	*ps_nbrsnew(int count);
+void			ps_nbrsadd_back(struct s_numbers **numbers, int number);
 
 /*
 **
@@ -47,8 +57,8 @@ struct s_numbers	*get_numbers(char *arr[], int arrlen);
 **
 */
 
-struct s_stack		*radix_sort(struct s_stack *stack);
-void			bubble_sort(struct s_stack *stack);
+void	radix_sort(struct s_stack **stack_a, struct s_stack **stack_b, struct s_numbers *numbers);
+void	bubble_sort(struct s_stack *stack);
 
 /*
 **
@@ -61,13 +71,22 @@ void	sb(struct s_stack **stack);
 void	ss(struct s_stack **stack_a, struct s_stack **stack_b);
 
 void	pa(struct s_stack **stack_a, struct s_stack **stack_b);
+void	pa_x(struct s_stack **stack_a, struct s_stack **stack_b, size_t amount);
+void	pa_all(struct s_stack **stack_a, struct s_stack **stack_b);
 void	pb(struct s_stack **stack_a, struct s_stack **stack_b);
+void	pb_x(struct s_stack **stack_a, struct s_stack **stack_b, size_t amount);
 
 void	ra(struct s_stack **stack);
+void	ra_x(struct s_stack **stack, size_t amount);
+void	ra_to_top(struct s_stack **stack_a, struct s_stack *lst);
 void	rb(struct s_stack **stack);
+void	rb_x(struct s_stack **stack, size_t amount);
 void	rr(struct s_stack **stack_a, struct s_stack **stack_b);
 void	rra(struct s_stack **stack);
+void	rra_x(struct s_stack **stack, size_t amount);
+void	rra_to_top(struct s_stack **stack_a, struct s_stack *lst);
 void	rrb(struct s_stack **stack);
+void	rrb_x(struct s_stack **stack, size_t amount);
 void	rrr(struct s_stack **stack_a, struct s_stack **stack_b);
 
 #endif
