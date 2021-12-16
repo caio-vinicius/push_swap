@@ -3,7 +3,7 @@ NAME = push_swap
 LIBRARY = libft/libft.a
 
 test: $(LIBRARY)
-	gcc -Wall -Wextra -g3 -fsanitize=address -g -I include/ -I libft/ parsing.c sort/*.c operations/*.c list/*.c push_swap.c $(LIBRARY) -o push_swap
+	gcc -Wall -Wextra -g -I src/include/ -I libft/ src/parsing/*.c src/sort/*.c src/operations/*.c src/list/*.c src/numbers/*.c src/push_swap.c $(LIBRARY) -o push_swap
 
 $(NAME): $(LIBRARY)
 	gcc -g -I include/ -I libft/ push_swap.c $(LIBRARY) -o $@
