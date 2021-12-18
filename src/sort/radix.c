@@ -6,36 +6,17 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/15 22:56:28 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 12:24:50 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	*count_digits(struct s_numbers *numbers, int exponent)
-{
-	int *digits;
-	int digit;
-	size_t i;
-
-	digit = 0;
-	i = 0;
-	digits = malloc(10 * sizeof(int));
-	ft_memset(digits, 0, 10 * sizeof(int));
-	while (i != numbers->count)
-	{
-		digit = (numbers->numbers[i] / exponent) % 10;
-		digits[digit] += 1; 
-		i++;
-	}
-	return (digits);
-}
-
 static void	sort_sorted(struct s_stack **stack_a, struct s_stack **stack_b)
 {
-	struct s_stack *lst;
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
+	struct s_stack	*lst;
 
 	lst = *stack_a;
 	i = 0;
@@ -62,37 +43,31 @@ static void	sort_sorted(struct s_stack **stack_a, struct s_stack **stack_b)
 	pa_all(stack_a, stack_b);
 }
 
-struct s_numbers	*count_sort(struct s_numbers *numbers, int exponent)
+static struct s_numbers	*count_sort(struct s_numbers *numbers, int exponent)
 {
 	struct s_numbers *output;
-	int i;
+	size_t i;
 	int j;
-	int *digits;
 
-	digits = count_digits(numbers, exponent);
 	output = ps_nbrsnew(numbers->count);
 	i = 0;
-	j = 0;
-	while (i < 10)
+	j = -9;
+	while (j < 10)
 	{
-		while (digits[i])
+		while (i < numbers->count)
 		{
-			if (i == ((numbers->numbers[j] / exponent) % 10))
-			{
-				ps_nbrsadd_back(&output, numbers->numbers[j]);
-				digits[i] -= 1;
-			}
-			j++;
+			if (j == ((numbers->numbers[i] / exponent) % 10))
+				ps_nbrsadd_back(&output, numbers->numbers[i]);
+			i++;
 		}
-		j = 0;
-		i++;
+		i = 0;
+		j++;
 	}
-	free(digits);
 	ps_nbrsfree(numbers);
 	return (output);
 }
 
-void	index_stack(struct s_stack **stack_a, struct s_numbers *numbers)
+static void	index_stack(struct s_stack **stack_a, struct s_numbers *numbers)
 {
 	struct s_stack	*lst;
 	size_t	i;
@@ -103,7 +78,7 @@ void	index_stack(struct s_stack **stack_a, struct s_numbers *numbers)
 	{
 		while (lst)
 		{
-			if (lst->element == (int)numbers->numbers[i])
+			if (lst->element == numbers->numbers[i])
 			{
 				lst->index = i;
 				break ;
