@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 11:28:57 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/12 11:37:01 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:42:17 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ps_lstadjustindex(struct s_stack *lst)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (lst)

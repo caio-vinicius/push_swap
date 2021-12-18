@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/18 15:54:53 by csouza-f          #+#    #+#             */
+/*   Updated: 2021/12/18 18:12:55 by csouza-f         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft.h"
-#include <stdlib.h>
+# include "libft.h"
+# include <stdlib.h>
 
 struct s_stack
 {
-	int		element;
-	size_t		index;
-	struct s_stack	*next;
-	struct s_stack	*previous;
+	struct s_stack		*next;
+	struct s_stack		*previous;
+	size_t				index;
+	int					element;
 };
 
 struct s_numbers
 {
-	int	*numbers;
 	size_t	count;
+	int		*numbers;
 };
 
 /*
@@ -26,11 +38,11 @@ struct s_numbers
 
 struct s_stack	*ps_lstnew(int element, size_t index);
 struct s_stack	*ps_lstlast(struct s_stack *lst);
-void		ps_lstadd_front(struct s_stack **lst, struct s_stack *new);
-void		ps_lstadd_back(struct s_stack **lst, struct s_stack *new);
-size_t		ps_lstsize(struct s_stack *lst);
+void			ps_lstadd_front(struct s_stack **lst, struct s_stack *new);
+void			ps_lstadd_back(struct s_stack **lst, struct s_stack *new);
+size_t			ps_lstsize(struct s_stack *lst);
 struct s_stack	*ps_lsthighest(struct s_stack *stack);
-void		ps_lstfree(struct s_stack *stack);
+void			ps_lstfree(struct s_stack *stack);
 struct s_stack	*ps_llstnew(struct s_numbers *numbers);
 
 /*
@@ -39,8 +51,8 @@ struct s_stack	*ps_llstnew(struct s_numbers *numbers);
 **
 */
 
+struct	s_numbers	*ps_nbrsnew(int count);
 void			ps_nbrsfree(struct s_numbers *nbrs);
-struct s_numbers	*ps_nbrsnew(int count);
 void			ps_nbrsadd_back(struct s_numbers **numbers, int number);
 
 /*
@@ -49,7 +61,7 @@ void			ps_nbrsadd_back(struct s_numbers **numbers, int number);
 **
 */
 
-struct s_numbers	*get_numbers(char *arr[], int arrlen);
+struct	s_numbers	*get_numbers(char **arr, int arrlen);
 
 /*
 **
@@ -57,8 +69,10 @@ struct s_numbers	*get_numbers(char *arr[], int arrlen);
 **
 */
 
-void	radix_sort(struct s_stack **stack_a, struct s_stack **stack_b, struct s_numbers *numbers);
-void	bubble_sort(struct s_stack *stack);
+void			radix_sort(struct s_stack **stack_a,
+					struct s_stack **stack_b,
+					struct s_numbers *numbers);
+void			bubble_sort(struct s_stack *stack);
 
 /*
 **
@@ -66,28 +80,32 @@ void	bubble_sort(struct s_stack *stack);
 **
 */
 
-void	sa(struct s_stack **stack);
-void	sb(struct s_stack **stack);
-void	ss(struct s_stack **stack_a, struct s_stack **stack_b);
+void			sa(struct s_stack **stack);
+void			sb(struct s_stack **stack);
+void			ss(struct s_stack **stack_a, struct s_stack **stack_b);
 
-void	pa(struct s_stack **stack_a, struct s_stack **stack_b);
-void	pa_x(struct s_stack **stack_a, struct s_stack **stack_b, size_t amount);
-void	pa_all(struct s_stack **stack_a, struct s_stack **stack_b);
-void	pb(struct s_stack **stack_a, struct s_stack **stack_b);
-void	pb_x(struct s_stack **stack_a, struct s_stack **stack_b, size_t amount);
+void			pa(struct s_stack **stack_a, struct s_stack **stack_b);
+void			pa_x(struct s_stack **stack_a,
+					struct s_stack **stack_b,
+					size_t amount);
+void			pa_all(struct s_stack **stack_a, struct s_stack **stack_b);
+void			pb(struct s_stack **stack_a, struct s_stack **stack_b);
+void			pb_x(struct s_stack **stack_a,
+					struct s_stack **stack_b,
+					size_t amount);
 
-void	ra(struct s_stack **stack);
-void	ra_x(struct s_stack **stack, size_t amount);
-void	ra_to_top(struct s_stack **stack_a, struct s_stack *lst);
-void	rb(struct s_stack **stack);
-void	rb_x(struct s_stack **stack, size_t amount);
-void	rr(struct s_stack **stack_a, struct s_stack **stack_b);
-void	rra(struct s_stack **stack);
-void	rra_x(struct s_stack **stack, size_t amount);
-void	rra_to_top(struct s_stack **stack_a, struct s_stack *lst);
-void	rrb(struct s_stack **stack);
-void	rrb_x(struct s_stack **stack, size_t amount);
-void	rrr(struct s_stack **stack_a, struct s_stack **stack_b);
+void			ra(struct s_stack **stack);
+void			ra_x(struct s_stack **stack, size_t amount);
+void			ra_to_top(struct s_stack **stack_a, struct s_stack *lst);
+void			rb(struct s_stack **stack);
+void			rb_x(struct s_stack **stack, size_t amount);
+void			rr(struct s_stack **stack_a, struct s_stack **stack_b);
+void			rra(struct s_stack **stack);
+void			rra_x(struct s_stack **stack, size_t amount);
+void			rra_to_top(struct s_stack **stack_a, struct s_stack *lst);
+void			rrb(struct s_stack **stack);
+void			rrb_x(struct s_stack **stack, size_t amount);
+void			rrr(struct s_stack **stack_a, struct s_stack **stack_b);
 
 /*
 **
@@ -95,6 +113,6 @@ void	rrr(struct s_stack **stack_a, struct s_stack **stack_b);
 **
 */
 
-int	stack_is_sorted_ascending(struct s_stack *stack);
+int				stack_is_sorted_ascending(struct s_stack *stack);
 
 #endif

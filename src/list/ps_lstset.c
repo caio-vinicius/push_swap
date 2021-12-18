@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:04:30 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/11 16:04:37 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:44:01 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ps_lstset(struct s_stack **lst, int element)
 {
-	struct s_stack *new;
+	struct s_stack	*new;
 
 	new = *lst;
 	while (new)

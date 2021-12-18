@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:21:28 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/16 19:39:51 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 15:54:26 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	theres_duplicates(char **arr)
 struct s_numbers	*get_numbers(char **arr, int arrlen)
 {
 	struct s_numbers	*numbers;
-	int	i;
+	int					i;
 
 	if (!are_numbers(arr))
 		return (0);

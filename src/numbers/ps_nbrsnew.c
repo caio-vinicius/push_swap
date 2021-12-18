@@ -6,13 +6,13 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 16:24:04 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/11 16:31:05 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:44:24 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-struct s_numbers *ps_nbrsnew(int count)
+struct s_numbers	*ps_nbrsnew(int count)
 {
 	struct s_numbers	*new;
 

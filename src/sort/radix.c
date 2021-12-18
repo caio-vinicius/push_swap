@@ -6,33 +6,34 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/18 12:24:50 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 20:13:25 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	sort_sorted(struct s_stack **stack_a, struct s_stack **stack_b)
+static void	sort_sorted(
+		struct s_stack **stack_a,
+		struct s_stack **stack_b)
 {
-	size_t	i;
-	size_t	j;
 	struct s_stack	*lst;
+	size_t			i;
+	size_t			j;
 
 	lst = *stack_a;
 	i = 0;
 	j = 0;
 	while (lst)
 	{
-		if (i == lst->index)
+		if (i == lst->index && ++i)
 		{
 			if (j > (ps_lstsize(*stack_a) / 2))
 				rra_to_top(stack_a, lst);
 			else
 				ra_to_top(stack_a, lst);
 			pb(stack_a, stack_b);
-			i++;
 			j = 0;
-			lst = *stack_a;
+			lst= *stack_a;
 		}
 		else
 		{
@@ -40,14 +41,15 @@ static void	sort_sorted(struct s_stack **stack_a, struct s_stack **stack_b)
 			lst = lst->next;
 		}
 	}
-	pa_all(stack_a, stack_b);
 }
 
-static struct s_numbers	*count_sort(struct s_numbers *numbers, int exponent)
+static struct s_numbers	*count_sort(
+			struct s_numbers *numbers,
+			int exponent)
 {
-	struct s_numbers *output;
-	size_t i;
-	int j;
+	struct s_numbers	*output;
+	size_t				i;
+	int					j;
 
 	output = ps_nbrsnew(numbers->count);
 	i = 0;
@@ -67,11 +69,13 @@ static struct s_numbers	*count_sort(struct s_numbers *numbers, int exponent)
 	return (output);
 }
 
-static void	index_stack(struct s_stack **stack_a, struct s_numbers *numbers)
+static void	index_stack(
+		struct s_stack **stack_a,
+		struct s_numbers *numbers)
 {
 	struct s_stack	*lst;
-	size_t	i;
-	
+	size_t			i;
+
 	i = 0;
 	lst = *stack_a;
 	while (i != numbers->count)
@@ -90,10 +94,13 @@ static void	index_stack(struct s_stack **stack_a, struct s_numbers *numbers)
 	}
 }
 
-void	radix_sort(struct s_stack **stack_a, struct s_stack **stack_b, struct s_numbers *numbers)
+void	radix_sort(
+	struct s_stack **stack_a,
+	struct s_stack **stack_b,
+	struct s_numbers *numbers)
 {
-	int highest_value;
-	int exponent;
+	int	highest_value;
+	int	exponent;
 
 	highest_value = (ps_lsthighest(*stack_a))->element;
 	exponent = 1;
@@ -104,4 +111,5 @@ void	radix_sort(struct s_stack **stack_a, struct s_stack **stack_b, struct s_num
 	}
 	index_stack(stack_a, numbers);
 	sort_sorted(stack_a, stack_b);
+	pa_all(stack_a, stack_b);
 }

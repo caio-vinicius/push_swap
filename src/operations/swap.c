@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:16:19 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/12 11:11:06 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:45:49 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	swap_first_two_elements(struct s_stack **stack)
 {
-	struct s_stack *tmp;
+	struct s_stack	*tmp;
 
 	tmp = (*stack)->next;
 	if ((*stack)->next->next)

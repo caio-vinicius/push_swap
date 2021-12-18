@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:16:39 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/15 23:01:45 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:43:37 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ struct s_stack	*ps_llstnew(struct s_numbers *numbers)
 {
 	struct s_stack	*stack;
 	struct s_stack	*new;
-	size_t	i;
+	size_t			i;
 
 	i = 0;
 	if (!numbers)
@@ -26,7 +26,8 @@ struct s_stack	*ps_llstnew(struct s_numbers *numbers)
 	while (i < numbers->count)
 	{
 		new = ps_lstnew(numbers->numbers[i], 0);
-		if (!new) {
+		if (!new)
+		{
 			ps_lstfree(stack);
 			return (NULL);
 		}

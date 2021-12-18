@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:11:55 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/15 23:16:58 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:45:29 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push_element_to_top(struct s_stack **taker, struct s_stack **giver)
 {	
 	struct s_stack	*tmp;
-	
+
 	if (!*giver)
 		return ;
 	tmp = (*giver)->next;

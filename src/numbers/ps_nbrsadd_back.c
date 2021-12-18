@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 22:50:08 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/15 22:51:31 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:45:03 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ps_nbrsadd_back(struct s_numbers **numbers, int number)
 {
-	int i;
-	
+	size_t	i;
+
 	i = 0;
 	while ((*numbers)->numbers[i])
 		i++;

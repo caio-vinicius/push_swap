@@ -6,13 +6,16 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 23:17:00 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/15 23:17:23 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:47:15 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	px_x(struct s_stack **stack_a, struct s_stack **stack_b, size_t amount, void (*operation)(struct s_stack **stack_a, struct s_stack **stack_b))
+static void	px_x(struct s_stack **stack_a,
+	struct s_stack **stack_b,
+	size_t amount,
+	void (*operation)(struct s_stack **stack_a, struct s_stack **stack_b))
 {
 	while (amount)
 	{
