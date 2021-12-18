@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/18 20:13:25 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 20:41:12 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void	radix_sort(
 		exponent = exponent * 10;
 	}
 	index_stack(stack_a, numbers);
+	ps_nbrsfree(numbers);
 	sort_sorted(stack_a, stack_b);
 	pa_all(stack_a, stack_b);
 }
