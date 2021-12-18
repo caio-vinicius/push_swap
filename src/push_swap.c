@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 13:11:39 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/15 23:59:08 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 10:54:24 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	push_swap(int nbrslen, char **nbrs)
 	struct s_stack	*stack_b;
 	struct s_numbers	*numbers;
 
-	numbers = get_numbers(++nbrs, --nbrslen);
+	if (!*++nbrs)
+		return (0);
+	numbers = get_numbers(nbrs, --nbrslen);
 	if (!numbers)
 	{
 		ft_putstr("Error\n");

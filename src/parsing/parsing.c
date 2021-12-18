@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:21:28 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/16 00:04:51 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/16 19:39:51 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	are_numbers(char **arr)
 	{
 		while (arr[i][j])
 		{
-			if (!ft_isdigit(arr[i][j]))
+			if (!ft_isdigit(arr[i][j]) && arr[i][j] != '-')
 				return (0);
 			j++;
 		}
@@ -79,8 +79,6 @@ struct s_numbers	*get_numbers(char **arr, int arrlen)
 	struct s_numbers	*numbers;
 	int	i;
 
-	if (!*arr)
-		return (0);
 	if (!are_numbers(arr))
 		return (0);
 	if (!are_integers(arr))
