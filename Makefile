@@ -2,23 +2,19 @@ NAME = push_swap
 
 LIBRARY = src/libft/libft.a
 
-test: $(LIBRARY)
-	gcc -Wall -Wextra -g -I src/include/ -I src/libft/ src/parsing/*.c src/sort/*.c src/operations/*.c src/list/*.c src/numbers/*.c src/utils/* src/push_swap.c $(LIBRARY) -o push_swap
-
 $(NAME): $(LIBRARY)
-	gcc -g -I include/ -I libft/ push_swap.c $(LIBRARY) -o $@
+	gcc -Wall -Wextra -g -I src/include/ -I src/libft/ src/parsing/*.c src/sort/*.c src/operations/*.c src/list/*.c src/numbers/*.c src/utils/* src/push_swap.c $(LIBRARY) -o $@
 
 $(LIBRARY):
-	$(MAKE) -C libft
-	$(MAKE) bonus -C libft
+	$(MAKE) -C src/libft
+	$(MAKE) bonus -C src/libft
 
 clean:
 	rm -rf $(NAME)
-	$(MAKE) clean -C libft
+	$(MAKE) clean -C src/libft
 
 fclean: clean
 	rm -rf $(NAME)
-	$(MAKE) fclean -C libft
+	$(MAKE) fclean -C src/libft
 
-#re: fclean $(NAME)
-re: fclean test
+re: fclean $(NAME)
