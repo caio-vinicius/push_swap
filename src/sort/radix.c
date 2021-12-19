@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/18 20:41:12 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/18 21:44:10 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	sort_sorted(
 				ra_to_top(stack_a, lst);
 			pb(stack_a, stack_b);
 			j = 0;
-			lst= *stack_a;
+			lst = *stack_a;
 		}
 		else
 		{
