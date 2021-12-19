@@ -6,6 +6,7 @@ $(NAME): $(LIBRARY)
 	gcc -Wall -Wextra -g -I src/include/ -I src/libft/ src/parsing/*.c src/sort/*.c src/operations/*.c src/list/*.c src/numbers/*.c src/utils/* src/push_swap.c $(LIBRARY) -o $@
 
 $(LIBRARY):
+	git submodule update --init --recursive
 	$(MAKE) -C src/libft
 	$(MAKE) bonus -C src/libft
 
