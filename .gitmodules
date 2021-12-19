@@ -1,3 +1,3 @@
 [submodule "libft"]
 	path = src/libft
-	url = git@github.com:caio-vinicius/libft.git
+	url = https://github.com/caio-vinicius/libft.git
