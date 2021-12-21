@@ -41,6 +41,7 @@ struct s_stack	*ps_lstlast(struct s_stack *lst);
 void			ps_lstadd_front(struct s_stack **lst, struct s_stack *new);
 void			ps_lstadd_back(struct s_stack **lst, struct s_stack *new);
 size_t			ps_lstsize(struct s_stack *lst);
+size_t			ps_lstrsize(struct s_stack *lst);
 struct s_stack	*ps_lsthighest(struct s_stack *stack);
 void			ps_lstfree(struct s_stack *stack);
 struct s_stack	*ps_llstnew(struct s_numbers *numbers);
