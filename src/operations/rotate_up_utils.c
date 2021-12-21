@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 23:20:44 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/18 16:48:13 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/21 11:29:38 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,36 @@ static void	rx_x(struct s_stack **stack,
 	}
 }
 
-void	ra_x(struct s_stack **stack, size_t amount)
+void	ra_x(
+	struct s_stack **stack,
+	size_t amount)
 {
 	rx_x(stack, amount, &ra);
 }
 
-void	rb_x(struct s_stack **stack, size_t amount)
+void	rb_x(
+	struct s_stack **stack,
+	size_t amount)
 {
 	rx_x(stack, amount, &rb);
 }
 
-void	ra_to_top(struct s_stack **stack_a, struct s_stack *lst)
+static void	rx_to_top(
+	struct s_stack **stack,
+	struct s_stack *lst,
+	void (*operation)(struct s_stack **stack))
 {
 	while (lst->previous)
-		if (lst != *stack_a)
-			ra(stack_a);
+		if (lst != *stack)
+			operation(stack);
+}
+
+void	ra_to_top(struct s_stack **stack_a, struct s_stack *lst)
+{
+	rx_to_top(stack_a, lst, &ra);
+}
+
+void	rb_to_top(struct s_stack **stack_b, struct s_stack *lst)
+{
+	rx_to_top(stack_b, lst, &rb);
 }

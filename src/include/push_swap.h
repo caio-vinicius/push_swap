@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:54:53 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/18 18:12:55 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/21 11:49:29 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,20 @@ void			pb_x(struct s_stack **stack_a,
 void			ra(struct s_stack **stack);
 void			ra_x(struct s_stack **stack, size_t amount);
 void			ra_to_top(struct s_stack **stack_a, struct s_stack *lst);
+
 void			rb(struct s_stack **stack);
 void			rb_x(struct s_stack **stack, size_t amount);
+void			rb_to_top(struct s_stack **stack_b, struct s_stack *lst);
+
 void			rr(struct s_stack **stack_a, struct s_stack **stack_b);
 void			rra(struct s_stack **stack);
 void			rra_x(struct s_stack **stack, size_t amount);
 void			rra_to_top(struct s_stack **stack_a, struct s_stack *lst);
+
 void			rrb(struct s_stack **stack);
 void			rrb_x(struct s_stack **stack, size_t amount);
+void			rrb_to_top(struct s_stack **stack_b, struct s_stack *lst);
+
 void			rrr(struct s_stack **stack_a, struct s_stack **stack_b);
 
 /*
