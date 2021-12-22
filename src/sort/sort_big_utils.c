@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 20:23:50 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/21 20:39:18 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/22 16:05:13 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static struct s_numbers	*make_numbers(
 		size += 2;
 	else if (values[1])
 		size += 2;
-	numbers = ps_nbrsnew(size);
+	numbers = ps_nbrsnew(size + 1);
 	numbers->numbers[0] = ps_lstrsize(values[0]);
 	numbers->numbers[1] = ps_lstsize(values[0]);
 	numbers->numbers[2] = ps_lstrsize(values[1]);

@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 13:02:47 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/21 20:50:37 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/22 16:39:01 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,19 @@ static struct s_numbers	*count_chunks(
 {
 	struct s_numbers	*counted_chunks;
 	struct s_stack		*lst;
-	size_t				i;
 
-	i = 0;
 	lst = stack;
 	counted_chunks = ps_nbrsnew(chunks->count);
-	while (i != chunks->count)
+	while (chunks->count)
 	{
+		chunks->count--;
 		while (lst)
 		{
-			if (lst->index <= (size_t)(chunks->numbers[i + 1] - 1)
-				&& lst->index >= (size_t)chunks->numbers[i])
-				counted_chunks->numbers[i] += 1;
+			if (lst->index <= (size_t)(chunks->numbers[chunks->count + 1] - 1)
+				&& lst->index >= (size_t)chunks->numbers[chunks->count])
+				counted_chunks->numbers[chunks->count] += 1;
 			lst = lst->next;
 		}
-		i++;
 		lst = stack;
 	}
 	return (counted_chunks);
@@ -93,7 +91,7 @@ static void	sort_sorted_big(
 	i = 0;
 	while (*stack_a)
 	{
-		while (counted_chunks->numbers[i])
+		while (counted_chunks->numbers[i] && counted_chunks->numbers[i]--)
 		{
 			lst = *stack_a;
 			j = 0;
@@ -105,10 +103,10 @@ static void	sort_sorted_big(
 				lst = lst->next;
 			}
 			sort_sorted_move(stack_a, stack_b, values);
-			counted_chunks->numbers[i] -= 1;
 		}
 		i++;
 	}
+	free(values);
 }
 
 void	sort_big(
@@ -126,5 +124,7 @@ void	sort_big(
 	chunks = get_chunks(*stack_a, amount_chunks);
 	counted_chunks = count_chunks(*stack_a, chunks);
 	sort_sorted_big(stack_a, stack_b, chunks, counted_chunks);
+	ps_nbrsfree(chunks);
+	ps_nbrsfree(counted_chunks);
 	pa_all_selecting_larger_numbers(stack_a, stack_b);
 }
