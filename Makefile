@@ -1,9 +1,21 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/22 16:44:53 by csouza-f          #+#    #+#              #
+#    Updated: 2021/12/22 16:44:54 by csouza-f         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
 LIBRARY = src/libft/libft.a
 
 $(NAME): $(LIBRARY)
-	gcc -Wall -Wextra -g -I src/include/ -I src/libft/ src/parsing/*.c src/sort/*.c src/operations/*.c src/list/*.c src/numbers/*.c src/utils/* src/push_swap.c $(LIBRARY) -o $@
+	gcc -Wall -Wextra -Werror -I src/include/ -I src/libft/ src/parsing/*.c src/sort/*.c src/operations/*.c src/list/*.c src/numbers/*.c src/utils/* src/push_swap.c $(LIBRARY) -o $@
 
 $(LIBRARY):
 	git submodule update --init --recursive
