@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:54:53 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/21 11:49:29 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/21 21:00:20 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,9 @@ struct	s_numbers	*get_numbers(char **arr, int arrlen);
 **
 */
 
-void			radix_sort(struct s_stack **stack_a,
+void			sort(struct s_stack **stack_a,
 					struct s_stack **stack_b,
 					struct s_numbers *numbers);
-void			bubble_sort(struct s_stack *stack);
 
 /*
 **

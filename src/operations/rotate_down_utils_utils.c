@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_down_utils.c                                :+:      :+:    :+:   */
+/*   rotate_down_utils_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 23:19:35 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/21 20:54:21 by csouza-f         ###   ########.fr       */
+/*   Created: 2021/12/21 20:54:00 by csouza-f          #+#    #+#             */
+/*   Updated: 2021/12/21 20:54:30 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rrx_x(struct s_stack **stack,
-	size_t amount,
+static void	rrx_to_top(
+	struct s_stack **stack,
+	struct s_stack *lst,
 	void (*operation)(struct s_stack **stack))
 {
-	while (amount)
-	{
-		operation(stack);
-		amount--;
-	}
+	while (lst->previous)
+		if (lst != *stack)
+			operation(stack);
 }
 
-void	rra_x(struct s_stack **stack, size_t amount)
+void	rra_to_top(struct s_stack **stack_a, struct s_stack *lst)
 {
-	rrx_x(stack, amount, &rra);
+	rrx_to_top(stack_a, lst, &rra);
 }
 
-void	rrb_x(struct s_stack **stack, size_t amount)
+void	rrb_to_top(struct s_stack **stack_b, struct s_stack *lst)
 {
-	rrx_x(stack, amount, &rrb);
+	rrx_to_top(stack_b, lst, &rrb);
 }
