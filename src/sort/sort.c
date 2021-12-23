@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/22 15:24:03 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:28:04 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,27 @@ static struct s_numbers	*count_sort(
 	int exponent)
 {
 	struct s_numbers	*output;
+	size_t				zero_amount;
 	size_t				i;
 	int					j;
 
 	output = ps_nbrsnew(numbers->count);
 	i = 0;
-	j = -9;
-	while (j < 10)
+	j = -10;
+	zero_amount = 0;
+	while (++j < 10)
 	{
 		while (i < numbers->count)
 		{
 			if (j == ((numbers->numbers[i] / exponent) % 10))
-				ps_nbrsadd_back(&output, numbers->numbers[i]);
+			{
+				ps_nbrsadd_back(&output, numbers->numbers[i], zero_amount);
+				if (numbers->numbers[i] == 0)
+					zero_amount++;
+			}
 			i++;
 		}
 		i = 0;
-		j++;
 	}
 	ps_nbrsfree(numbers);
 	return (output);

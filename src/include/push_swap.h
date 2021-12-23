@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:54:53 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/21 21:00:20 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:29:43 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ struct s_stack	*ps_llstnew(struct s_numbers *numbers);
 
 struct	s_numbers	*ps_nbrsnew(int count);
 void			ps_nbrsfree(struct s_numbers *nbrs);
-void			ps_nbrsadd_back(struct s_numbers **numbers, int number);
+void			ps_nbrsadd_back(struct s_numbers **numbers,
+					int number,
+					size_t zero_amount);
 
 /*
 **
