@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/23 16:28:04 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:57:18 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ void	sort(
 	int		exponent;
 
 	if (stack_is_sorted_ascending(*stack_a))
+	{
+		ps_nbrsfree(numbers);
 		return ;
+	}
 	highest_value = (ps_lsthighest(*stack_a))->element;
 	exponent = 1;
 	while ((highest_value / exponent) > 0)
