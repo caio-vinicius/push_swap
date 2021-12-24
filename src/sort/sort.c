@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:05:06 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/23 16:57:18 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/24 19:44:54 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	sort(
 	struct s_numbers *numbers)
 {
 	size_t	stack_size;
-	int		highest_value;
+	int		longer_value;
 	int		exponent;
 
 	if (stack_is_sorted_ascending(*stack_a))
@@ -88,9 +88,11 @@ void	sort(
 		ps_nbrsfree(numbers);
 		return ;
 	}
-	highest_value = (ps_lsthighest(*stack_a))->element;
+	longer_value = (ps_lstlonger(*stack_a))->element;
+	if (longer_value < 0)
+		longer_value *= -1;
 	exponent = 1;
-	while ((highest_value / exponent) > 0)
+	while ((longer_value / exponent) > 0)
 	{
 		numbers = count_sort(numbers, exponent);
 		exponent = exponent * 10;
