@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 15:54:53 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/23 16:29:43 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/24 10:40:28 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void			ps_lstadd_back(struct s_stack **lst, struct s_stack *new);
 size_t			ps_lstsize(struct s_stack *lst);
 size_t			ps_lstrsize(struct s_stack *lst);
 struct s_stack	*ps_lsthighest(struct s_stack *stack);
+struct s_stack	*ps_lstlowest(struct s_stack *stack);
 void			ps_lstfree(struct s_stack *stack);
 struct s_stack	*ps_llstnew(struct s_numbers *numbers);
 
