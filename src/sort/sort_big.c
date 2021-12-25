@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 13:02:47 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/22 16:39:01 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/25 11:15:12 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	sort_big(
 	int					amount_chunks;
 
 	amount_chunks = 5;
-	if (stack_size >= 500)
+	if (stack_size >= 400)
 		amount_chunks = 10;
 	chunks = get_chunks(*stack_a, amount_chunks);
 	counted_chunks = count_chunks(*stack_a, chunks);
