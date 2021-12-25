@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 22:50:08 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/23 16:29:06 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/25 11:08:23 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ps_nbrsadd_back(
 	size_t	i;
 
 	i = 0;
-	while (!ft_isdigit((*numbers)->numbers[i]))
+	while (1)
 	{
 		if ((*numbers)->numbers[i] == 0 && zero_amount > 0)
 			zero_amount--;
