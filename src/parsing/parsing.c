@@ -6,7 +6,7 @@
 /*   By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:21:28 by csouza-f          #+#    #+#             */
-/*   Updated: 2021/12/18 15:54:26 by csouza-f         ###   ########.fr       */
+/*   Updated: 2021/12/27 21:27:41 by csouza-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	theres_duplicates(char **arr)
 	{
 		while (arr[j])
 		{
-			if (!ft_strncmp(arr[i], arr[j], sizeof(arr[i])))
+			if (!ft_strncmp(arr[i], arr[j], 10))
 				return (1);
 			j++;
 		}
