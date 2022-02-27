@@ -6,7 +6,7 @@
 #    By: csouza-f <caio@42sp.org.br>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/26 10:17:22 by csouza-f          #+#    #+#              #
-#    Updated: 2022/02/27 12:58:26 by csouza-f         ###   ########.fr        #
+#    Updated: 2022/02/27 13:02:36 by csouza-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,8 +98,10 @@ $(OBJECTS)/%.o: $(SOURCES_PARSING)/%.c
 
 clean:
 	rm -f $(OBJECTS_FILES)
+	$(MAKE) clean -C src/libft
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) fclean -C src/libft
 
 re: fclean all
